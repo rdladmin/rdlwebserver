@@ -1,0 +1,35 @@
+﻿@page
+@model AssetInventory.Pages.Assets.IndexModel
+@{
+}
+
+<br>
+<h2>List of Assets</h2>
+<a class='btn btn-primary btn-sm' href='/Assets/Create'>New Asset</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Device Name</th>
+            <th>Device IP</th>
+            <th>Location</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listAsset)
+        {
+            <tr>
+                <td>@item.Device_name</td>
+                <td>@item.Device_IP</td>
+                <td>@item.Location</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Assets/Edit?id=@item.id">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Assets/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
